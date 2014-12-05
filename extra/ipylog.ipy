@@ -1,0 +1,435 @@
+# IPython log file
+
+
+reload(rforest)
+reload(rforest)
+reload(rforest)
+import rforest
+reload(rforest)
+forest=rforest.build_forest(etf,etl,15)
+get_ipython().magic(u'load hw12loader.py')
+import numpy as np
+
+digitfnames={
+        'trf':'hw12data/digitsDataset/trainFeatures.csv',
+        'trl':'hw12data/digitsDataset/trainLabels.csv',
+        'tef':'hw12data/digitsDataset/testFeatures.csv',
+        'vl':'hw12data/digitsDataset/valLabels.csv',
+        'vf':'hw12data/digitsDataset/valFeatures.csv',
+        }
+
+emailfnames={
+        'trf':'hw12data/emailDataset/trainFeatures.csv',
+        'trl':'hw12data/emailDataset/trainLabels.csv',
+        'tef':'hw12data/emailDataset/testFeatures.csv',
+        'vl':'hw12data/emailDataset/valLabels.csv',
+        'vf':'hw12data/emailDataset/valFeatures.csv',
+        }
+
+def load_digit_training_data():
+    features = np.loadtxt(digitfnames['trf'],delimiter=',')
+    labels = np.loadtxt(digitfnames['trl'],delimiter=',')
+    return features,labels
+def load_digit_validation_data():
+    features = np.loadtxt(digitfnames['vf'],delimiter=',')
+    labels = np.loadtxt(digitfnames['vl'],delimiter=',')
+    return features,labels
+def load_digit_test_data():
+    features = np.loadtxt(digitfnames['tef'],delimiter=',')
+    return features
+
+def load_email_training_data():
+    features = np.loadtxt(emailfnames['trf'],delimiter=',')
+    labels = np.loadtxt(emailfnames['trl'],delimiter=',')
+    return features,labels
+def load_email_validation_data():
+    features = np.loadtxt(emailfnames['vf'],delimiter=',')
+    labels = np.loadtxt(emailfnames['vl'],delimiter=',')
+    return features,labels
+def load_email_test_data():
+    features = np.loadtxt(emailfnames['tef'],delimiter=',')
+    return features
+
+etf,etl=load_email_training_data()
+evf,evl=load_email_validation_data()
+trf,trl=load_digit_training_data()
+forest=rforest.build_forest(etf,etl,15)
+get_ipython().magic(u'debug ')
+reload(rforest)
+forest=rforest.build_forest(etf,etl,15)
+array([rforest.forestclassify(forest,x) for x in evf])-evl
+abs(array([rforest.forestclassify(forest,x) for x in evf])-evl)
+sum(abs(array([rforest.forestclassify(forest,x) for x in evf])-evl))/len(evl)
+import collections
+get_ipython().magic(u'pinfo collections.Iterable')
+collections.Iterable()
+type(collections.Container)
+type([1,2])==collections.Container
+isinstance([1,2],collections.Container)
+reload(rforest)
+forest=rforest.build_forest(etf,etl,15)
+reload(rforest)
+forest=rforest.build_forest(etf,etl,15)
+forest
+reload(rforest)
+rforest.validation_accuracy(forrest)
+rforest.validation_accuracy(forest,evf,evl)
+reload(rforest)
+rforest.validation_accuracy(forest,evf,evl)
+rforest.validation_accuracy(forest,evf,evl,1)
+acc,inc=rforest.validation_accuracy(forest,evf,evl,1)
+inc
+len(inc)
+len(evf)
+41/500.
+acc
+acc,inc=rforest.validation_accuracy(forest,evf,evl,1)
+acc
+acc,inc=rforest.validation_accuracy(forest,evf,evl,1)
+acc
+forest[0]
+forest[1]
+forest[2]
+forest
+len(forest)
+len(forest[0])
+rforest.validation_accuracy(forest[0],evf,evl,1)
+rforest.validation_accuracy(forest[0],evf,evl,0)
+rforest.validation_accuracy(forest[1],evf,evl,0)
+rforest.validation_accuracy(forest[2],evf,evl,0)
+rforest.validation_accuracy(forest[3],evf,evl,0)
+rforest.validation_accuracy(forest[10],evf,evl,0)
+[rforest.validation_accuracy(f,evf,evl,0) for f in forest]
+array([rforest.forestclassify(forest,x) for x in evf])-evl
+abs(array([rforest.forestclassify(forest,x) for x in evf])-evl)
+sum(abs(array([rforest.forestclassify(forest,x) for x in evf])-evl))
+matshow(abs(array([rforest.forestclassify(forest,x) for x in evf]).reshape(25,-1)))
+matshow(evl.reshape(25,-1))
+etf,etl=load_email_test_data()
+etf=load_email_test_data()
+etf
+[rforest.forestclassify(forest,x) for x in etf]
+[rforest.forestclassify(forest,x) for x in etf]
+[rforest.forestclassify(forest,x) for x in etf]
+[rforest.forestclassify(forest,x) for x in etf]
+([rforest.forestclassify(forest,x) for x in etf])
+tuple(rforest.forestclassify(forest,x) for x in etf)
+foresttest=[rforest.forestclassify(forest,x) for x in etf]
+fp=open('forest_email_test_results','w')
+fp.write(foresttest)
+fp.write('\n'.join(foresttest))
+fp.write('\n'.join(map(str,foresttest)))
+fp.close()
+rforest
+forest=rforest.build_forest(etf,etl,35)
+forest
+forest=rforest.build_forest(etf,etl,35)
+forest=rforest.build_forest(etf,etl,15)
+etf
+etl
+etf,etl=load_email_test_data()
+etf,etl=load_email_training_data()
+forest=rforest.build_forest(etf,etl,15)
+forest=rforest.build_forest(etf,etl,35)
+forrest
+forest
+forest
+rforest.validation_accuracy(forest,evf,evl,0)
+rforest.validation_accuracy(forest,evf,evl,1)
+acc,inc=rforest.validation_accuracy(forest,evf,evl,1)
+inc
+zip(*inc)
+matshow(zip(*inc)[0])
+zip(*inc)[0]
+zip(*inc)[1]
+zip(*inc)[0]
+zip(*inc)[0].shape
+zip(*inc)[0][0]
+[matshow(zip(*inc)[0][i]) for i in xrange(len(inc))]
+get_ipython().magic(u'debug ')
+[matshow(zip(*inc)[0][i].reshape(int(sqrt(len(inc[i]))),-1) for i in xrange(len(inc))]
+)
+[matshow(zip(*inc)[0][i].reshape(int(sqrt(len(inc[i]))),-1)) for i in xrange(len(inc))]
+close('all')
+[(zip(*inc)[0][i].reshape(int(sqrt(len(inc[i]))),-1)) for i in xrange(len(inc))]
+array([(zip(*inc)[0][i].reshape(int(sqrt(len(inc[i]))),-1)) for i in xrange(len(inc))])
+vstack(array([(zip(*inc)[0][i].reshape(int(sqrt(len(inc[i]))),-1)) for i in xrange(len(inc))]))
+matshow(vstack(array([(zip(*inc)[0][i].reshape(int(sqrt(len(inc[i]))),-1)) for i in xrange(len(inc))])))
+hot()
+bone()
+hot()
+earth()
+colorbar()
+reload(rforest)
+forests=[rforest.build_forest(etf,etl,t) for t in [1,2,5,10,25]]
+reload(rforest)
+forests=[rforest.build_forest(etf,etl,t) for t in [1,2,5,10,25]]
+get_ipython().magic(u'debug ')
+reload(rforest)
+reload(rforest)
+rforest.validation_accuracy(forest,evf,evl,1)
+forest=rforest.build_forest(etf,etl,35)
+rforest.forestclassify(forest)
+rforest.forestclassify(forest,evl)
+rforest.forestclassify(forest,evf)
+rforest.validation_accuracy(forest,evf,evl)
+rforest.classifyforest,evf,evl)
+rforest.classifyforest(forest,evf[0])
+rforest.forestclassify(forest,evf[0])
+reload(rforest)
+reload(rforest)
+rforest.forestclassify(forest,evf[0])
+reload(rforest)
+rforest.forestclassify(forest,evf[0])
+rforest.forestclassify(forest,evf[0])re
+reload(rforest)
+rforest.forestclassify(forest,evf[0])
+rforest.validation_accuracy(forest,evf,evl)
+rforest.forestclassify(forest,evf[0])
+rforest.forestclassify(forest,evf[0])
+evl
+rforest.validation_accuracy()
+rforest.validation_accuracy(evl)
+rforest.validation_accuracy(evf,evl)
+rforest.validation_accuracy(forest,evf,evl)
+rforest.validation_accuracy(forest,evf,evl,1)
+forest=rforest.build_forest(etf,etl,5,1)
+reload(rforest)
+forest=rforest.build_forest(etf,etl,5,1)
+reload(rforest)
+forest=rforest.build_forest(etf,etl,5,1)
+forest
+forest=rforest.build_forest(etf,etl,5,True)
+forest=rforest.build_forest(etf,etl,5,True)re
+reload(rforest)
+forest=rforest.build_forest(etf,etl,5,True)
+forest
+forest=rforest.build_forest(etf,etl,10,True)
+n,d=np.shape(etf)
+d
+n
+sqrt(d)
+reload(rforest)
+sqrt(d)
+forest=rforest.build_forest(etf,etl,10,True)
+[rforest.validation_accuracy(tree,evf,evl) for tree in forest]
+forest
+forest[3]
+forest[0][1]
+[rforest.validation_accuracy(tree,evf,evl) for tree in forest[0]]
+forest[0][0]
+[rforest.validation_accuracy([tree],evf,evl) for tree in forest[0]]
+[rforest.validation_accuracy(forest[0],evf,evl) for tree in forest[0]]
+[rforest.validation_accuracy(tree,evf,evl) for tree in forest[0]]
+forest[0]
+forest[0][0]
+forest[0][1]
+[rforest.validation_accuracy(forest[0][i],evf,evl) for i in xrange(len(forest[0]))]
+i
+[rforest.validation_accuracy(forest[0][i],evf,evl) for i in xrange(len(forest[0])) if forest[0][i]]
+forest[1]
+reload(rforest)
+forest
+forest,forestgains=forest
+rforest.validation_accuracy(forest,evf,evl,1,forestgains)
+reload(rforest)
+rforest.validation_accuracy(forest,evf,evl,1,forestgains)
+acc,inc-rforest.validation_accuracy(forest,evf,evl,1,forestgains)
+acc,inc=rforest.validation_accuracy(forest,evf,evl,1,forestgains)
+acc
+acc,inc=rforest.validation_accuracy(forest,evf,evl,1)
+acc
+forests
+forests=[rforest.build_forest(etf,etl,t) for t in [1,2,5,10,25]]
+etf
+etf,etl=load_email_training_data()
+forests=[rforest.build_forest(etf,etl,t) for t in [1,2,5,10,25]]
+for forest in forests:
+    forest,forestgain=forest
+    acc,incorrect = rforest.validation_accuracy(forest,evf,evl,1,forestgain)
+    print acc
+    
+forests
+forests[0]
+forests=[rforest.build_forest(etf,etl,t) for t in [1,2,5,10,25]]
+forests=[rforest.build_forest(etf,etl,t,1) for t in [1,2,5,10,25]]
+for forest in forests:
+    forest,forestgain=forest
+    acc,incorrect = rforest.validation_accuracy(forest,evf,evl,1,forestgain)
+    print acc
+    
+for forest in forests:
+    forest,forestgain=forest
+    acc,incorrect = rforest.validation_accuracy(forest,evf,evl,1)
+    print acc
+    
+reload(rforest)
+for forest in forests:
+    forest,forestgain=forest
+    acc,incorrect = rforest.validation_accuracy(forest,evf,evl,1)
+    print acc
+    
+reload(rforest)
+forest=rforest.build_forest(etf,etl,10,True,MAXDEPTH=100,MINGOODNESS=0.01)
+reload(rforest)
+forest=rforest.build_forest(etf,etl,10,True,MAXDEPTH=100,MINGOODNESS=0.01)
+reload(rforest)
+forest=rforest.build_forest(etf,etl,10,True,MAXDEPTH=100,MINGOODNESS=0.01)
+acc,inc=rforest.validation_accuracy(forest,evf,evl,1)
+forest
+forest,forestgains=forest
+acc,inc=rforest.validation_accuracy(forest,evf,evl,1)
+acc
+acc,inc=rforest.validation_accuracy(forest,evf,evl,1,forestgain)
+acc
+reload(rforest)
+reload(rforest)
+reload(rforest)
+reload(rforest)
+forest=rforest.build_forest(etf,etl,10,True,MINGOODNESS=0.5)
+forest=rforest.build_forest(etf,etl,10,True,MINGOODNESS=0.01)
+forest,forestgains=forest
+forest
+forestgain
+plot(forestgain)
+hist(forestgain)
+acc,inc=rforest.validation_accuracy(forest,evf,evl,1,forestgain)
+acc
+acc,inc=rforest.validation_accuracy(forest,evf,evl,1)
+acc
+acc,inc=rforest.validation_accuracy(forest,evf,evl)
+rforest.validation_accuracy(forest,evf,evl)
+rforest.validation_accuracy(forest,etf,etl)
+forest=rforest.build_forest(etf,etl,5,True,MINGOODNESS=0.1)
+rforest.validation_accuracy(forest,etf,etl)
+rforest.validation_accuracy(forest[0],etf,etl)
+rforest.validation_accuracy(forest[0],etf,etl,forest[1])
+rforest.validation_accuracy(forest[0],etf,etl,0,forest[1])
+rforest.validation_accuracy(forest[0],evf,evl,0,forest[1])
+rforest.validation_accuracy(forest[0],evf,evl,0)
+forest=rforest.build_forest(etf,etl,50,True,MINGOODNESS=0.2)
+acc,inc=rforest.validation_accuracy(forest,evf,evl)
+acc,inc=rforest.validation_accuracy(forest[0],evf,evl)
+forest,forestgains=forest
+acc,inc=rforest.validation_accuracy(forest[0],evf,evl)
+get_ipython().magic(u'debug ')
+acc,inc=rforest.validation_accuracy(forest[0],evf,evl,1)
+forest=rforest.build_forest(etf,etl,50,True,MINGOODNESS=0.3)
+reload(rforest)
+forest=rforest.build_forest(etf,etl,50,True,MINGOODNESS=0.3)
+forest=rforest.build_forest(etf,etl,50,True,MINGOODNESS=0.1)
+acc,inc=rforest.validation_accuracy(forest[0],evf,evl,1)
+acc
+forest,forestgains=forest
+acc,inc=rforest.validation_accuracy(forest,evf,evl)
+acc,inc=rforest.validation_accuracy(forest,evf,evl,1)
+acc
+acc,inc=rforest.validation_accuracy(forest,evf,evl,1,forestgain)
+acc,inc=rforest.validation_accuracy(forest,evf,evl,1,forestgains)
+forestgain
+forestgains
+acc
+acc,inc=rforest.validation_accuracy(forest,evf,evl,1)
+acc
+forest=rforest.build_forest(etf,etl,15,True,MINGOODNESS=0.01)
+acc=rforest.validation_accuracy(forest,evf,evl)
+rforest.validation_accuracy(forest,evf,evl)
+forest
+forest,forestgains=forest
+rforest.validation_accuracy(forest,evf,evl)
+rforest.validation_accuracy(forest,evf,evl,0,forestgains)
+rforest.validation_accuracy(forest,evf,evl)
+forest=rforest.build_forest(etf,etl,1,True,MINGOODNESS=0.01)
+rforest.validation_accuracy(forest,evf,evl)
+rforest.validation_accuracy(forest,evf,evl)
+rforest.validation_accuracy(forest[0],evf,evl)
+forest=rforest.build_forest(etf,etl,1,True,MINGOODNESS=0.001)
+forest=rforest.build_forest(etf,etl,1,True,MINGOODNESS=0.001)
+forest=rforest.build_forest(etf,etl,1,True,MINGOODNESS=0.01)
+forest=rforest.build_forest(etf,etl,1,True,MINGOODNESS=0.0001)
+forest=rforest.build_forest(etf,etl,1,True,MINGOODNESS=0.0001)
+forest=rforest.build_forest(etf,etl,1,True,MINGOODNESS=0.0000001)
+rforest.validation_accuracy(forest[0],evf,evl)
+forest=rforest.build_forest(etf,etl,10,True,MINGOODNESS=0.0000001)
+forest=rforest.build_forest(etf,etl,1,True,MINGOODNESS=0.9)
+forest=rforest.build_forest(etf,etl,1,True,MINGOODNESS=0.9)
+forest=rforest.build_forest(etf,etl,1,True,MINGOODNESS=0.9,K=1000)
+reload(rforest)
+forest=rforest.build_forest(etf,etl,1,True,MINGOODNESS=0.9,K=1000)
+forest=rforest.build_forest(etf,etl,1,True,MINGOODNESS=0.,K=1000)
+reload(rforest)
+forest=rforest.build_forest(etf,etl,1,True,MINGOODNESS=0.,K=1000)
+reload(rforest)
+acc=rforest.validation_accuracy(forest,evf,evl)
+acc=rforest.validation_accuracy(forest[0],evf,evl)
+acc
+forest=rforest.build_forest(etf,etl,1,True,MINGOODNESS=0.,K=1000)
+forest=rforest.build_forest(etf,etl,1,True,MINGOODNESS=0.,K=1000)
+reload(rforest)
+forest=rforest.build_forest(etf,etl,1,True,MINGOODNESS=0.,K=1000)
+acc=rforest.validation_accuracy(forest[0],evf,evl)
+acc
+reload(rforest)
+forest=rforest.build_forest(etf,etl,100,2,MINGOODNESS=0.,K=5)
+acc=rforest.validation_accuracy(forest[0],evf,evl)
+acc
+forest[0]
+forest[0][0]
+forest[0][99]
+forest
+acc=rforest.validation_accuracy(forest,evf,evl)
+acc
+acc
+array([(zip(*inc)[0][i].reshape(int(sqrt(len(inc[i]))),-1)) for i in xrange(len(inc))])
+matshow(array([(zip(*inc)[0][i].reshape(int(sqrt(len(inc[i]))),-1)) for i in xrange(len(inc))]).reshape(25,-1))
+matshow(abs(array([rforest.forestclassify(forest,x) for x in evf]).reshape(25,-1)))
+matshow(evl.reshape(25,-1))
+forests
+forests[0]
+forests[1]
+forests[2]
+forests[3]
+forests[4]
+forests[5]
+for ests[4]
+for forest in forests:
+    forest,forestgain=forest
+    acc,incorrect = rforest.validation_accuracy(forest,evf,evl,1)
+    print acc
+    
+get_ipython().magic(u'pinfo rforest.validation_accuracy')
+for forest in forests:
+    forest,forestgain=forest
+    acc,incorrect = rforest.validation_accuracy(forest,evf,evl,1,forestgain)
+    print acc
+    
+for forest in forests:
+    forest,forestgain=forest
+    acc,incorrect = rforest.validation_accuracy(forest,evf,evl,1)
+    print 1-acc
+    
+reload(rforest)
+forests2=[rforest.build_forest(etf,etl,t) for t in [1,2,5,10,25]]
+reload(rforest)
+forests2
+for est
+for forest in forests:
+    acc,incorrect = rforest.validation_accuracy(forest,evf,evl,1)
+    print acc
+    
+for forest in forests:
+    acc,incorrect = rforest.validation_accuracy(forest,evf,evl,1)
+    print acc
+    
+for forest in forests2:
+    acc = rforest.validation_accuracy(forest,evf,evl)
+    print acc
+    
+forests2=[rforest.build_forest(etf,etl,t,MAXDEPTH=5) for t in [1,2,5,10,25]]
+for forest in forests2:
+    acc = rforest.validation_accuracy(forest,evf,evl)
+    print acc
+    
+forests2
+forests2[0]
+exit()

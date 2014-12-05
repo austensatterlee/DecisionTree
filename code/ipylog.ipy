@@ -1,0 +1,67 @@
+# IPython log file
+
+
+import hw12loader as hwl
+import rforest
+etf,etl=load_email_training_data()
+etf,etl=hwl.load_email_training_data()
+forest=rforest.build_forest(etf,etl,10)
+forest
+forest[0]
+evf,evl=load_email_validation_data()
+evf,evl = hwl.load_email_validation_data()
+acc=rforest.validation_accuracy(forest,evf,evl)
+acc
+acc=rforest.validation_accuracy(forest,tvf,tvl)
+acc=rforest.validation_accuracy(forest,etf,etl)
+acc
+acc=rforest.validation_accuracy(forest,evf,etl)
+acc
+acc=rforest.validation_accuracy(forest,etf,evl)
+acc=rforest.validation_accuracy(forest,evf,evl)
+acc=rforest.validation_accuracy(forest,etf,evl)
+acc=rforest.validation_accuracy(forest,etf,evl)
+forest=rforest.build_forest(etf,etl,5,)
+get_ipython().magic(u'pinfo rforest.build_forest')
+forest=rforest.build_forest(etf,etl,5,verbose=True)
+acc=rforest.validation_accuracy(forest[0],etf,evl,forestgain=forest[1])
+acc=rforest.validation_accuracy(forest[0],etf,evl,forestGain=forest[1])
+get_ipython().magic(u'pinfo rforest.validation_accuracy')
+acc=rforest.validation_accuracy(forest[0],etf,evl,forestgains=forest[1])
+acc=rforest.validation_accuracy(forest[0],evf,evl,forestgains=forest[1])
+acc
+acc=rforest.validation_accuracy(forest[0],evf,evl)
+acc
+forest[1]
+acc=rforest.validation_accuracy(forest[0],evf,evl,verbose=1)
+acc
+acc[1]
+reload(rforest)
+acc=rforest.validation_accuracy(forest[0],evf,evl,verbose=1)
+reload(rforest)
+acc=rforest.validation_accuracy(forest[0],evf,evl,verbose=1)
+acc
+acc[-1]
+reload(rforest)
+acc[-1]
+acc=rforest.validation_accuracy(forest[0],evf,evl,verbose=1)
+acc
+acc[-1]
+acc[-1][0]
+acc[-1][1]
+acc[-1][2]
+acc[-1][3]
+acc[-1][4]
+acc[-1][5]
+acc[-1][6]
+forest=rforest.build_forest(etf,etl,5,verbose=True,K=2)
+acc=rforest.validation_accuracy(forest[0],evf,evl,verbose=1)
+acc
+acc[0]
+acc[1]
+reload(rforest)
+reload(rforest)
+forest=rforest.build_forest(etf,etl,15,verbose=True,K=10)
+acc=rforest.validation_accuracy(forest[0],evf,evl,verbose=1)
+acc
+acc[0]

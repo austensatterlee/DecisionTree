@@ -1,0 +1,4 @@
+a) Error rates for T=1,2,5,10,25 (respectively): 0.134, 0.158, 0.178, 0.116, 0.15
+b) The sum of a tree's information gain is used to weigh its vote in the case of a tie
+c) I stop building the tree when the information gain fails to exceed a threshold, or when the best threshold is one of the extrema of the current subset.
+d) N/A

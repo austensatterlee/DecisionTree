@@ -1,0 +1,16 @@
+a) Error rates: 0.089,  0.089,  0.095,  0.11 ,  0.131 for k=1,2,5,10,25 respectively. k=1 (which is equivalent to k=2) performs the best.
+b) The label that was encountered first in the heap wins (the label with
+the closest neighbor)
+c) No, it performed exactly the same. There are two cases. If the second
+vote is the same as the first vote, then the classifier behaves the same
+as for k=1. If not, then the first vote (the closest neighbor) always wins
+due to my tiebreaking rule, in which case the classifier still behaves the
+same as for k=1.
+d) I looked at the following examples: #4,#15,#40,#63,#69. Most were
+written in a slightly abnormal way that led them to look like other
+numbers. Like a 7 with a short horizontal line looks like somewhat a 1,
+for instance.Also, the algorithm had problems discerning between 5's and
+2's, which is interesting because their shape is similar, but only if you
+rotate one 180 degrees and then flip it across the vertical axis. To
+combat this, we could prehaps figure out the 2D derivative of the
+bright part of the image (the ink), then include the direction of concavity changes or minimums and maximums as features.
