@@ -1,6 +1,5 @@
 import numpy as np
-import heapq
-import collections
+import heapq,sys,collections
 
 def build_forest(training_features,training_labels,N=10,bagsize=1,verbose=False,**kwargs):
     """
@@ -17,19 +16,15 @@ def build_forest(training_features,training_labels,N=10,bagsize=1,verbose=False,
     n,d=training_features.shape
     forest=[]
     N=int(N)
+    if verbose:
+        sys.stdout.write("Growing tree ")
     for i in xrange(N):
-        junk=True
-        while junk:
-            print "Growing tree",i,"!"
-            bag = np.random.choice(np.arange(n),size=int(n*bagsize),replace=True)
-            tree = build_tree(training_features[bag],training_labels[bag],verbose=verbose,**kwargs)
-            if treegain>0:
-                forest.append(tree)
-                print "Tree",i,"has grown!"
-                junk=False
-            else:
-                print "Tree",i,"is junk yo"
-                print treegain,tree
+        if verbose:
+            sys.stdout.write("{}.".format(i))
+        bag = np.random.choice(np.arange(n),size=int(n*bagsize),replace=True)
+        tree = build_tree(training_features[bag],training_labels[bag],**kwargs)
+        forest.append(tree)
+    sys.stdout.write('\n')
     return forest
 
 def build_tree(training_features,training_labels,**kwargs):
@@ -61,16 +56,16 @@ def build_tree(training_features,training_labels,**kwargs):
 
     """
     depth = kwargs.pop('depth',0)
-    MAXDEPTH = kwargs['MAXDEPTH'] = kwargs.get('MAXDEPTH',2**training_features.shape[1])
+    MAXDEPTH = kwargs['MAXDEPTH'] = kwargs.get('MAXDEPTH',10)
     MINGOODNESS = kwargs['MINGOODNESS'] = kwargs.get('MINGOODNESS',-np.inf)
     K = kwargs['K'] = kwargs.get('K',8)
     verbose = kwargs['verbose'] = kwargs.get('verbose',False)
 
     if depth>=MAXDEPTH or training_labels.size<=5:
         leaf = most_frequent(training_labels)
-        if depth>=MAXDEPTH:
+        if depth>=MAXDEPTH and verbose:
             print "Leaf {:25} label: {}".format("(depth lim.)",leaf)
-        else:
+        elif verbose:
             print "Leaf {:25} label: {}".format("(too few data: {} pts)".format(training_labels.size),leaf)
         return leaf
 
@@ -301,11 +296,19 @@ def print_tree(tree):
 if __name__=="__main__":
     import sys
     import hw12loader as hwl
-    etf,etl=hwl.load_email_training_data()
-    evf,evl=hwl.load_email_validation_data()
+    #etf,etl=hwl.load_email_training_data()
+    #evf,evl=hwl.load_email_validation_data()
+    etf,etl=hwl.load_digit_training_data()
+    evf,evl=hwl.load_digit_validation_data()
     T=sys.argv[1:]
     for t in T:
-        forest=build_forest(etf,etl,t)
+        forest=build_forest(etf,etl,t,1,verbose=1)
+        training=validation_accuracy(forest,etf,etl,True)
+        print "Size: {:5} {:20}{:20}{:35}".format(t,"Accuracy","Incorrect","Votes")
+        print "-"*75
+        print "(training)  {:<20}{:<20}{:<35}".format(training[0],len(training[1]),'')
+        validation=validation_accuracy(forest,evf,evl,True)
+        print "(validate)  {:<20}{:<20}{:<35}".format(validation[0],len(validation[1]),'')
         guessedlabels=[]
         for vfeature in evf:
             label=forestclassify(vfeature,etf)
